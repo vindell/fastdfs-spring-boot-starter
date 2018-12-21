@@ -366,7 +366,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<commons-beanutils.version>1.9.3</commons-beanutils.version>
-		<fastdfs.version>1.26.3</fastdfs.version>
+		<fastdfs.version>1.26.4</fastdfs.version>
 		<maven.version>3.0</maven.version>
        	<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
@@ -418,7 +418,30 @@
 		    <groupId>com.github.tobato</groupId>
 		    <artifactId>fastdfs-client</artifactId>
 		    <version>${fastdfs.version}</version>
+		    <exclusions>
+		    	<exclusion>
+		    		<groupId>org.hibernate.validator</groupId>
+		    		<artifactId>hibernate-validator</artifactId>
+		    	</exclusion>
+		    	<exclusion>
+		    		<groupId>ch.qos.logback</groupId>
+		    		<artifactId>logback-classic</artifactId>
+		    	</exclusion>
+		    </exclusions>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.oschina.zcx7878/fastdfs-client-java -->
+		<!-- <dependency>
+		    <groupId>net.oschina.zcx7878</groupId>
+		    <artifactId>fastdfs-client-java</artifactId>
+		    <version>1.27.0.0</version>
+		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
+		<!-- <dependency>
+		    <groupId>org.csource</groupId>
+		    <artifactId>fastdfs-client-java</artifactId>
+		    <version>1.27-RELEASE</version>
+		</dependency> -->
+						
 
 	</dependencies>
 	
