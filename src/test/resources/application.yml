@@ -1,3 +1,5 @@
 fdfs:
+  enabled: true
   pool:
-    lifo: true
+    max-total: 15
+    

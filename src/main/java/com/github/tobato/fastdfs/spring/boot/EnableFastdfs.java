@@ -24,10 +24,6 @@ import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.Import;
 
-/**
- * TODO
- * @author ： <a href="https://github.com/vindell">vindell</a>
- */
 @Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
