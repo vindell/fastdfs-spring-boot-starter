@@ -26,6 +26,7 @@ import org.springframework.jmx.support.RegistrationPolicy;
 @ConditionalOnProperty(prefix = FastdfsProperties.PREFIX, value = "enabled", havingValue = "true")
 @ComponentScan("com.github.tobato.fastdfs")
 @EnableConfigurationProperties({ FastdfsProperties.class })
+//解决jmx重复注册bean的问题
 @EnableMBeanExport(registration = RegistrationPolicy.IGNORE_EXISTING)
 public class FastdfsAutoAutoConfiguration {
 	

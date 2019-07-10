@@ -1,5 +1,6 @@
 fdfs:
   enabled: true
+  tracker-list:  - 192.168.3.200
   pool:
     max-total: 15
     
