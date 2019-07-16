@@ -41,9 +41,10 @@ public class FastdfsTemplate {
 	
 	public String getAccsssURL(StorePath storePath) throws Exception {
 		
-		//以秒为单位
+		// 以秒为单位
 		int ts = (int)(System.currentTimeMillis()/1000);
-		ts = ts + 100;
+		// 最小有效期限制5秒
+		ts = ts + Math.max(5, fastdfsProperties.getExpire()); 
 		
 		// 重置字符集
 		if(!StringUtils.equalsIgnoreCase(FastdfsUtils.g_charset, fastdfsProperties.getCharset())) {

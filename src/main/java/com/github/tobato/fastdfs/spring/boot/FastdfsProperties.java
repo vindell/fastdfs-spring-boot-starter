@@ -21,8 +21,13 @@ public class FastdfsProperties {
 	 */
 	private String secretKey;
 	/**
+	 * token 过期时间，默认：100（单位秒）
+	 */
+	private int expire = 100;
+	/**
 	 */
 	private String charset = FastdfsUtils.g_charset;
+	
 	
 	public boolean isEnabled() {
 		return enabled;
@@ -46,6 +51,14 @@ public class FastdfsProperties {
 
 	public void setSecretKey(String secretKey) {
 		this.secretKey = secretKey;
+	}
+
+	public int getExpire() {
+		return expire;
+	}
+
+	public void setExpire(int expire) {
+		this.expire = expire;
 	}
 
 	public String getCharset() {
