@@ -39,6 +39,32 @@ public class FastdfsTemplate {
 		return StringUtils.endsWith(fastdfsProperties.getEndpoint(), "/") ? fastdfsProperties.getEndpoint() : fastdfsProperties.getEndpoint() + "/";
 	}
 	
+	public String getAccsssURL(String group, String path) throws Exception {
+		
+		// 以秒为单位
+		int ts = (int)(System.currentTimeMillis()/1000);
+		// 最小有效期限制5秒
+		ts = ts + Math.max(5, fastdfsProperties.getExpire()); 
+		
+		// 重置字符集
+		if(!StringUtils.equalsIgnoreCase(FastdfsUtils.g_charset, fastdfsProperties.getCharset())) {
+			FastdfsUtils.g_charset = fastdfsProperties.getCharset();
+		}
+		
+		// 生成token
+		String token = FastdfsUtils.getToken(path, ts, fastdfsProperties.getSecretKey());
+		
+		if(logger.isDebugEnabled()) {
+			logger.debug("ts:" + ts + ", token:" + token);
+		}
+
+		//	输出为：ts:1484735390, token:ada4c7f1a65e125e3a55a837d0bff1eb
+		//	那么请求的url为:192.168.14.153/M00/01/74/wKgOmVh_dH6AE-f3AAA2_mDXnps704.jpg?ts=1484735390&token=ada4c7f1a65e125e3a55a837d0bff1eb
+		
+		return getEndpoint() + group + "/" + path + "?ts=" + ts + "&token=" + token;
+		
+	}
+	
 	public String getAccsssURL(StorePath storePath) throws Exception {
 		
 		// 以秒为单位
