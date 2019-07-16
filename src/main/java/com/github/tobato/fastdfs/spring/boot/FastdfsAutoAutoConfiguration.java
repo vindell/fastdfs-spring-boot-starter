@@ -17,6 +17,7 @@ package com.github.tobato.fastdfs.spring.boot;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableMBeanExport;
@@ -29,5 +30,10 @@ import org.springframework.jmx.support.RegistrationPolicy;
 //解决jmx重复注册bean的问题
 @EnableMBeanExport(registration = RegistrationPolicy.IGNORE_EXISTING)
 public class FastdfsAutoAutoConfiguration {
+	
+	@Bean
+	public FastdfsTemplate fastdfsTemplate(FastdfsProperties fastdfsProperties) {
+		return new FastdfsTemplate(fastdfsProperties);
+	}
 	
 }
