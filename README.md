@@ -1,4 +1,4 @@
-# spring-boot-starter-fastdfs
+# fastdfs-spring-boot-starter
 fastdfs starter for spring boot
 
 ### 说明
@@ -12,7 +12,7 @@ fastdfs starter for spring boot
 ``` xml
 <dependency>
 	<groupId>${project.groupId}</groupId>
-	<artifactId>spring-boot-starter-fastdfs</artifactId>
+	<artifactId>fastdfs-spring-boot-starter</artifactId>
 	<version>${project.version}</version>
 </dependency>
 ```
