@@ -29,6 +29,7 @@ public class FileStorePath extends StorePath {
      */
     public FileStorePath(StorePath store, String thumb) {
         super(store.getGroup(), store.getPath());
+        this.thumb = thumb;
     }
     
     /**
@@ -39,6 +40,7 @@ public class FileStorePath extends StorePath {
      */
     public FileStorePath(String group, String path, String thumb) {
         super(group, path);
+        this.thumb = thumb;
     }
 
 	public String getThumb() {
