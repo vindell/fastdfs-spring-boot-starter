@@ -15,15 +15,11 @@
  */
 package com.github.tobato.fastdfs.spring.boot.utils;
 
-/**
- * TODO
- * @author 		： <a href="https://github.com/hiwepy">wandl</a>
- */
+import java.security.NoSuchAlgorithmException;
+
 public class FastdfsUtils {
 
 	public static String g_charset = "ISO8859-1";
-	
-	
 	
 	/**
 	 * get token for file URL
@@ -32,6 +28,7 @@ public class FastdfsUtils {
 	 * @param ts         unix timestamp, unit: second
 	 * @param secret_key the secret key
 	 * @return token string
+	 * @throws Exception if Exception
 	 */
 	public static String getToken(String file_id, long ts, String secret_key) throws Exception {
 		byte[] bsFileId = file_id.getBytes(g_charset);
@@ -51,8 +48,9 @@ public class FastdfsUtils {
 	 * 
 	 * @param source the input buffer
 	 * @return md5 string
+	 * @throws NoSuchAlgorithmException if Exception
 	 */
-	public static String md5(byte[] source) throws java.security.NoSuchAlgorithmException {
+	public static String md5(byte[] source) throws NoSuchAlgorithmException {
 		char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 		java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
 		md.update(source);
